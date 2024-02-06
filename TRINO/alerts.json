@@ -1,0 +1,32 @@
+{
+  "TRINO": {
+    "TRINO_COORDINATOR": [
+      {
+        "description": "Trino Coordinator Process Monitor",
+        "enabled": true,
+        "interval": 1,
+        "label": "Trino Coordinator Process",
+        "name": "Trino Coordinator Process",
+        "scope": "ANY",
+        "source": {
+          "type": "PORT",
+          "uri": "{{config.properties/http-server.http.port}}",
+          "default_port": 8285,
+          "reporting": {
+            "ok": {
+              "text": "TCP OK - {0:.3f}s response on port {1}"
+            },
+            "warning": {
+              "text": "TCP OK - {0:.3f}s response on port {1}",
+              "value": 2.5
+            },
+            "critical": {
+              "text": "Connection failed: {0} to {1}:{2}",
+              "value": 10.0
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+    <property>
+        <name>connectors.to.add</name>
+        <value>{
+    "hive": [
+        "connector.name=hive",
+        "hive.metastore.uri={{{HIVE_METASTORE_URI}}}",
+        "hive.config.resources=/etc/hadoop/conf/core-site.xml,/etc/hadoop/conf/hdfs-site.xml",
+        "hive.cache.enabled=true",
+        "hive.cache.location=/data/trino/hive-cache",
+        "hive.cache.read-mode=async",
+        "hive.cache.ttl=7d",
+        "hive.cache.disk-usage-percentage=70"
+    ]
+}
+        </value>
+        <description>修改此属性以添加连接器。格式应为(以Hive为例):
+            {
+                "hive": [
+                    "connector.name=hive",
+                    "hive.metastore.uri=thrift://hive_metastore:9083",
+                    "hive.config.resources=/tmp/core-site.xml,/tmp/hdfs-site.xml"
+                 ],
+                "connector2": [
+                    "connector.name=other"
+                ]
+            }
+            注意每个值周围的引号!
+            本例将创建一个带有条目的trino属性key1 = value1等的文件连接器。
+            配置文件最终将在/etc/trino/catalog目录中生成。
+            不会接受此属性的空值，如果不想添加任何连接器，请保留值{};
+        </description>
+        <value-attributes>
+            <type>content</type>
+            <show-property-name>false</show-property-name>
+        </value-attributes>
+    </property>
+    <property>
+        <name>connectors.to.delete</name>
+        <value>[]</value>
+        <description>修改此属性以删除连接器。格式应为['hive', 'connector2', 'other', ...].
+            注意每个值周围的单引号!本例将删除文件connector1。属性,connector2。属性和connector3。属性在trino连接器目录中。如果不想删除任何连接器，则将值保留为[];不接受空值
+        </description>
+        <value-attributes>
+            <type>content</type>
+            <show-property-name>false</show-property-name>
+        </value-attributes>
+    </property>
+</configuration>

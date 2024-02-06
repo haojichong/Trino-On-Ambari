@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>content</name>
+        <value>{
+  "rootGroups": [
+    {
+      "name": "global",
+      "softMemoryLimit": "80%",
+      "hardConcurrencyLimit": 50,
+      "maxQueued": 100,
+      "schedulingPolicy": "weighted",
+      "jmxExport": false
+    }
+  ],
+  "selectors": [
+    {
+      "user": "hive",
+      "group": "global"
+    }
+  ],
+  "cpuQuotaPeriod": "1h"
+}
+
+        </value>
+        <value-attributes>
+            <type>content</type>
+            <show-property-name>false</show-property-name>
+        </value-attributes>
+    </property>
+</configuration>

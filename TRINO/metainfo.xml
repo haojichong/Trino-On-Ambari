@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <name>TRINO</name>
+            <displayName>Trino</displayName>
+            <comment>
+                Trino是一个分布式SQL查询引擎,可以查询多种数据源,包括关系型数据库、NoSQL数据库、Hadoop的Hive和Amazon的S3等数据存储系统,并支持高性能的并行查询.
+            </comment>
+            <version>418</version>
+            <components>
+                <component>
+                    <name>TRINO_COORDINATOR</name>
+                    <displayName>Trino Coordinator</displayName>
+                    <category>MASTER</category>
+                    <cardinality>1-2</cardinality>
+                    <versionAdvertised>true</versionAdvertised>
+                    <recovery_enabled>true</recovery_enabled>
+                    <commandScript>
+                        <script>scripts/trino_coordinator.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>1200</timeout>
+                    </commandScript>
+                </component>
+                <component>
+                    <name>TRINO_WORKER</name>
+                    <displayName>Trino Worker</displayName>
+                    <category>SLAVE</category>
+                    <cardinality>1+</cardinality>
+                    <versionAdvertised>true</versionAdvertised>
+                    <recovery_enabled>true</recovery_enabled>
+                    <commandScript>
+                        <script>scripts/trino_worker.py</script>
+                        <scriptType>PYTHON</scriptType>
+                    </commandScript>
+                </component>
+                <component>
+                    <name>TRINO_CLI</name>
+                    <displayName>Trino Client</displayName>
+                    <category>CLIENT</category>
+                    <cardinality>1+</cardinality>
+                    <versionAdvertised>true</versionAdvertised>
+                    <commandScript>
+                        <script>scripts/trino_cli.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>1200</timeout>
+                    </commandScript>
+                    <configFiles>
+                        <configFile>
+                            <type>xml</type>
+                            <fileName>connectors.properties</fileName>
+                            <dictionaryName>connectors.properties</dictionaryName>
+                        </configFile>
+                        <configFile>
+                            <type>env</type>
+                            <fileName>jvm.config</fileName>
+                            <dictionaryName>jvm.config</dictionaryName>
+                        </configFile>
+                    </configFiles>
+                </component>
+            </components>
+            <osSpecifics>
+                <osSpecific>
+                    <osFamily>any</osFamily>
+                </osSpecific>
+            </osSpecifics>
+            <configuration-dependencies>
+                <config-type>capacity-scheduler</config-type>
+                <config-type>trino-log.properties</config-type>
+                <config-type>trino-env.sh</config-type>
+                <config-type>trino-config.properties</config-type>
+                <config-type>trino-connectors.properties</config-type>
+                <config-type>trino-jvm.config</config-type>
+                <config-type>trino-node.properties</config-type>
+                <config-type>trino-resource-groups.json</config-type>
+                <config-type>trino-resource-groups.properties</config-type>
+                <config-type>trino-session-property-config.json</config-type>
+                <config-type>trino-session-property-config.properties</config-type>
+                <config-type>trino-event-listener.properties</config-type>
+            </configuration-dependencies>
+            <restartRequiredAfterChange>true</restartRequiredAfterChange>
+            <quickLinksConfigurations>
+                <quickLinksConfiguration>
+                    <fileName>quicklinks.json</fileName>
+                    <default>true</default>
+                </quickLinksConfiguration>
+            </quickLinksConfigurations>
+        </service>
+    </services>
+</metainfo>

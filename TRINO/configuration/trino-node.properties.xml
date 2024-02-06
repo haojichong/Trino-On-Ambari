@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>node.environment</name>
+        <value>HDP</value>
+        <description>环境的名称。集群中的所有Trino节点必须具有相同的环境名称。</description>
+    </property>
+    <property>
+        <name>node.data-dir</name>
+        <value>/data/hadoop/trino/data</value>
+    </property>
+    <property>
+        <name>catalog.config-dir</name>
+        <value>/etc/trino/catalog</value>
+    </property>
+    <property>
+        <name>node.server-log-file</name>
+        <value>/var/log/trino/server.log</value>
+    </property>
+    <property>
+        <name>node.launcher-log-file</name>
+        <value>/var/log/trino/launcher.log</value>
+    </property>
+</configuration>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>content</name>
+        <value># Enable verbose logging from Trino
+io.trino=INFO
+
+
+
+        </value>
+    </property>
+</configuration>

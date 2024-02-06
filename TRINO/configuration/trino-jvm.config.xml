@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>content</name>
+        <value>-server
+-Xmx16G
+-XX:-UseBiasedLocking
+-XX:+UseG1GC
+-XX:G1HeapRegionSize=32M
+-XX:+ExplicitGCInvokesConcurrent
+-XX:+ExitOnOutOfMemoryError
+-XX:+UseGCOverheadLimit
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:ReservedCodeCacheSize=512M
+-Djdk.attach.allowAttachSelf=true
+-Djdk.nio.maxCachedBufferSize=2000000
+
+
+
+
+        </value>
+        <description>用于启动Java虚拟机的命令行选项列表。文件的格式必须是每行一个选项。shell不会解释这些选项，因此包含空格或其他特殊字符的选项不应该被引用(如OnOutOfMemoryError选项所示)
+        </description>
+        <value-attributes>
+            <type>content</type>
+            <show-property-name>false</show-property-name>
+        </value-attributes>
+            </property>
+</configuration>

@@ -1,0 +1,62 @@
+# Conventional configuration
+coordinator={{coordinator}}
+http-server.http.port={{http_server_http_port}}
+discovery.uri={{discovery_uri}}
+http-server.log.path={{http_server_log_path}}
+
+# Node configuration
+node-scheduler.include-coordinator={{node_scheduler_include_coordinator}}
+node-scheduler.max-splits-per-node={{node_scheduler_max_splits_per_node}}
+node-scheduler.min-pending-splits-per-task={{node_scheduler_min_pending_splits_per_task}}
+node-scheduler.max-adjusted-pending-splits-per-task={{node_scheduler_max_adjusted_pending_splits_per_task}}
+node-scheduler.max-unacknowledged-splits-per-task={{node_scheduler_max_unacknowledged_splits_per_task}}
+node-scheduler.min-candidates={{node_scheduler_min_candidates}}
+node-scheduler.policy={{node_scheduler_policy}}
+
+# Fault-tolerant execution
+retry-policy={{retry_policy}}
+exchange.deduplication-buffer-size={{exchange_deduplication_buffer_size}}
+fault-tolerant-execution.exchange-encryption-enabled={{fault_tolerant_execution_exchange_encryption_enabled}}
+
+# Query configuration
+query.max-cpu-time={{query_max_cpu_time}}
+query.max-memory={{query_max_memory}}
+query.client.timeout={{query_client_timeout}}
+query.execution-policy={{query_execution_policy}}
+query.low-memory-killer.policy={{query_low_memory_killer_policy}}
+task.low-memory-killer.policy={{task_low_memory_killer_policy}}
+query.low-memory-killer.delay={{query_low_memory_killer_delay}}
+query.max-execution-time={{query_max_execution_time}}
+query.max-length={{query_max_length}}
+query.max-run-time={{query_max_run_time}}
+query.max-stage-count={{query_max_stage_count}}
+query.max-history={{query_max_history}}
+query.min-expire-age={{query_min_expire_age}}
+query.remote-task.max-error-duration={{query_remote_task_max_error_duration}}
+
+# Spill configuration
+spill-enabled={{spill_enabled}}
+spiller-spill-path={{spiller_spill_path}}
+spiller-max-used-space-threshold={{spiller_max_used_space_threshold}}
+spiller-threads={{spiller_threads}}
+max-spill-per-node={{max_spill_per_node}}
+query-max-spill-per-node={{query_max_spill_per_node}}
+aggregation-operator-unspill-memory-limit={{aggregation_operator_unspill_memory_limit}}
+spill-encryption-enabled={{spill_encryption_enabled}}
+
+# Exchange configuration
+exchange.client-threads={{exchange_client_threads}}
+exchange.concurrent-request-multiplier={{exchange_concurrent_request_multiplier}}
+exchange.data-integrity-verification={{exchange_data_integrity_verification}}
+exchange.max-buffer-size={{exchange_max_buffer_size}}
+exchange.max-response-size={{exchange_max_response_size}}
+sink.max-buffer-size={{sink_max_buffer_size}}
+sink.max-broadcast-buffer-size={{sink_max_broadcast_buffer_size}}
+
+# Task configuration
+task.http-response-threads={{task_http_response_threads}}
+task.http-timeout-threads={{task_http_timeout_threads}}
+task.info-update-interval={{task_info_update_interval}}
+task.max-drivers-per-task={{task_max_drivers_per_task}}
+task.max-partial-aggregation-memory={{task_max_partial_aggregation_memory}}
+task.min-drivers-per-task={{task_min_drivers_per_task}}

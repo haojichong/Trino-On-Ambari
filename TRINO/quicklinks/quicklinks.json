@@ -1,0 +1,33 @@
+{
+  "name": "default",
+  "description": "default quick links configuration",
+  "configuration": {
+    "protocol": {
+      "type": "https",
+      "checks": [
+        {
+          "property": "HTTPS_ONLY",
+          "desired": "HTTPS_ONLY",
+          "site": "config.properties"
+        }
+      ]
+    },
+    "links": [
+      {
+        "name": "TRINO_UI",
+        "label": "Trino UI",
+        "component_name": "TRINO_COORDINATOR",
+        "requires_user_name": "false",
+        "url": "%@://%@:%@/",
+        "port": {
+          "http_property": "http-server.http.port",
+          "http_default_port": "8285",
+          "https_property": "http-server.http.port",
+          "https_default_port": "8285",
+          "regex": "^(\\d+)$",
+          "site": "config.properties"
+        }
+      }
+    ]
+  }
+}

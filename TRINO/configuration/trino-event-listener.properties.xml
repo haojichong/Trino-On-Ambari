@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>enable.event-listener</name>
+        <value>false</value>
+        <description>是否开启事件监听器，默认为False</description>
+    </property>
+    <property>
+        <name>content</name>
+        <value>event-listener.name=mysql
+mysql-event-listener.db.url=jdbc:mysql://hostname:port/database?user=username&amp;password=password
+
+        </value>
+        <description>选项为[mysql,http]。以MySQL事件监听器为例进行说明
+        </description>
+    </property>
+</configuration>
